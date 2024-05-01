@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    min-width: 400px;
+    padding: 10px;
+}
+
+.text {
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+
+.btn {
+    background-color: green;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid green;
+    font-weight: bold;
+
+}
+
+
+.del-btn {
+    background: #fff;
+    color: green;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #333;
+    font-weight: bold;
+}
+
+.del-btn:hover {
+    color: #fff;
+    background-color: red;
+}
+
+#save-btn {
+    background-color: green;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid green;
+    font-weight: bold;
+}
+
+#save-btn:hover {
+    color: green;
+    background-color: #fff;
+}
+
+ul {
+    margin-top: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-top: 5px;
+}
+
+li a {
+    color: green;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: goldenrod;
+}
