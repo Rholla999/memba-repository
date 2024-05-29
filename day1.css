@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --CLOR: #f5f5f5;
+    --BCLOR: #4fb3d4;
+}
+
+body {
+    background-color: #4747a3;
+    color: var(--CLOR);
+
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    min-height: 100lvh;
+    width: 100lvw;
+}
+
+.text {
+    font-weight: 800;
+    font-size: 50px;
+    /* text-shadow: 3px -5px 2px #000; */
+    background: url(/img/space.jpg);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.animated_loader {
+    animation: loader 3s linear infinite;
+    border: 1em solid var(--CLOR);
+    border-left: 1em solid var(--BCLOR);
+    border-top: 1em solid var(--BCLOR);
+    border-radius: 50%;
+    height: 90px;
+    margin: 1.5rem;
+    width: 90px;
+
+}
+
+@keyframes loader {
+    100% {
+        transform: rotate(1turn);
+        transition: 0.4s all
+    }
+}
