@@ -7,8 +7,15 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+:root {
+    --BGCOLOR: #4e93be7a;
+    --WHSMK: whitesmoke;
+    --BLK: #000;
+    --BTNBKCLOR: #e4e4e48f
+}
+
 body {
-    background-color: #4e93be7a;
+    background-color: var(--BGCOLOR);
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -18,8 +25,8 @@ body {
 
 h2 {
     text-align: right;
-    text-shadow: 3px 3px 3px black;
-    color: whitesmoke;
+    text-shadow: 3px 3px 3px var(--BLK);
+    color: var(--WHSMK);
     padding: 0.3em;
     font-size: 12px;
 }
@@ -51,7 +58,7 @@ h2 {
     border: none;
     cursor: pointer;
     border-radius: 27px;
-    background-color: #e4e4e48f;
+    background-color: var(--BTNBKCLOR);
     font-family: sans-serif;
     box-shadow: 3px 3px 5px #3f3e3e, -1px -1px 4px #8b8a8a33;
 }
@@ -70,7 +77,7 @@ h2 {
     border: none;
     cursor: pointer;
     border-radius: 25px;
-    background-color: #e4e4e48f;
+    background-color: var(--BTNBKCLOR);
     font-family: sans-serif;
     box-shadow: 3px 3px 5px #3f3e3e, -1px -1px 4px #8b8a8a33;
 }
