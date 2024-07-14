@@ -1,33 +1,90 @@
-body {
+* {
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
-    background: #000;
-    height: 100vh;
 }
 
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(blue, black);
+}
 
 
 span {
-    background: url(/heart.png);
-    width: 100px;
-    height: 100px;
+    height: 35px;
+    width: 35px;
+    border: 5px solid;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-radius: 50%;
     position: absolute;
-    background-size: cover;
-    left: 50%;
     top: 50%;
-    transform: (-50%, -50%);
-    pointer-events: none;
-    animation: animate 6s linear;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ascend 3s linear forwards;
 }
 
-@keyframes animate {
+@keyframes ascend {
     0% {
         transform: translate(-50%, -50%);
+        opacity: 1;
         filter: hue-rotate(0);
+
     }
 
     100% {
-        transform: translate(-50%, 5000%);
-    filter: hue-rotate(720deg);
+        transform: translate(-50%, -5000%);
+        opacity: 0;
+        filter: hue-rotate(720deg);
     }
 }
 
+.butt {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-70%, -50%);
+}
+
+button {
+    background: blue;
+    padding: 15px 40px;
+    box-shadow: 0 4px 8px white;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    top: 20%;
+
+}
+
+button h3 {
+    z-index: 1;
+    color: whitesmoke;
+    position: relative;
+}
+
+button:active {
+    box-shadow: 0 -4px 8px white;
+}
+
+button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: orange;
+    position: absolute;
+    top: var(--yPos, 0);
+    left: var(--xPos, 0);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
