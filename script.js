@@ -1,63 +1,56 @@
-const bdyEl = document.querySelector('body');
+const screen1 = document.getElementById('display1');
+const keys = document.querySelectorAll('.btn');
+const equalsBtn = document.getElementById('equal');
+const clearBtn = document.getElementById('AC');
+const darkTheme = document.getElementById('dark');
+const bodyEl = document.querySelector('body');
 
-bdyEl.addEventListener('mousemove', (e) => {
-  const x = e.offsetX;
-  const y = e.offsetY;
-  const rSize = Math.floor(Math.random() * 100) + 1;
-  const spanEl = document.createElement('span');
-  spanEl.style.left = x + 'px';
-  spanEl.style.top = y + 'px';
-  spanEl.style.width = rSize + 'px';
-  spanEl.style.height = rSize + 'px';
-  bdyEl.appendChild(spanEl);
-
-  setTimeout(() => {
-    spanEl.remove();
-  }, 300);
+darkTheme.addEventListener('input', () => {
+  updateTheme();
+  updateLocalStorage();
 });
 
-const jobs = [
-  'Banker',
-  'Driver',
-  'Wielder',
-  'Teacher',
-  'Lecturer',
-  'Electrician',
-  'Engineer',
-];
-let jobIndex = 0;
-let indexPos = 0;
+darkTheme.checked = JSON.parse(localStorage.getItem('mode'));
 
-const btnEl = document.getElementById('btn');
-
-btnEl.addEventListener('mouseover', (e) => {
-  const x = e.pageX - btnEl.offsetLeft;
-  const y = e.pageY - btnEl.offsetTop;
-
-  btnEl.style.setProperty('--xPos', x + 'px');
-  btnEl.style.setProperty('--yPos', y + 'px');
-});
-
-function updateText() {
-  bdyEl.innerHTML = `
-<h1> My Daddy is ${jobs[jobIndex].slice(0, 1) === 'E' ? 'an' : 'a'}
-${jobs[jobIndex].slice(0, indexPos)}
-`;
-  if (indexPos === jobs[jobIndex].length) {
-    jobIndex++;
-    indexPos = 0;
-  }
-
-  if (jobIndex === jobs.length) {
-    jobIndex = 0;
-  }
-
-  indexPos++;
-  setTimeout(updateText, 300);
+function updateLocalStorage() {
+  localStorage.setItem('mode', JSON.stringify(darkTheme));
 }
 
+function updateTheme() {
+  if (darkTheme.checked) {
+    document.body.classList.toggle('darkThemebackGround');
+  } else {
+    document.body.classList.remove('darkThemebackGround');
+  }
+}
 
+keys.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    let value = e.target.dataset.key;
+    screen1.value += value;
+  });
+});
 
-btnEl.addEventListener('click', () => {
-  updateText();
+equalsBtn.addEventListener('click', () => {
+  if (screen1.value === '') {
+    screen1.value = '';
+  } else {
+    let ans = eval(screen1.value);
+    screen1.value = ans;
+  }
+});
+
+clearBtn.addEventListener('click', () => {
+  screen1.value = '';
+  screen2.value = '';
+});
+
+const xBtn = document.getElementById('x').addEventListener('click', () => {
+  let ans1 = screen1.value.toString().slice(0, -1);
+  screen1.value = ans1;
+});
+
+const sqr = document.getElementById('sqr').addEventListener('click', () => {
+  let sqrAns = Math.sqrt(screen1.value, 2);
+  screen1.value = sqrAns;
 });
