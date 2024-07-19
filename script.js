@@ -3,15 +3,27 @@ const min = document.getElementById('min');
 const seconds = document.getElementById('seconds');
 
 function updateTime() {
-  let time = new Date();
+  let hrs = new Date().getHours();
+  let m = new Date().getMinutes();
+  let s = new Date().getSeconds();
+  if (hrs > 12) {
+    hrs = hrs - 12;
+  }
 
-  hours.textContent = time.getHours();
-  min.textContent = time.getMinutes();
-  seconds.textContent = time.getSeconds();
+  hrs = hrs < 10 ? '0' + hrs : hrs;
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+
+  hours.textContent = hrs;
+  min.textContent = m;
+  seconds.textContent = s;
 
   setTimeout(() => {
     updateTime();
   }, 1000);
 }
+
+updateTime();
+
 
 updateTime();
