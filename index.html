@@ -5,67 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="MEMBA AKU">
     <meta name="description" content="clone">
-    <title>Date Design</title>
+    <title>Digital Clock</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
-    <div class="calcontainer">
-        <div class="calc-head">
-            <nav>
-                <h2>MEM<span class="red">BA</span></h2>
-
-                <div class="theme-container">
-                    <input type="checkbox" id="dark" class="input">
-                    <label for="dark" class="label">
-                        <div class="circle"></div>
-                    </label>
-                </div>
-
-            </nav>
-
-            <div class="screen">
-                <input type="text" id="display1">
-
-            </div>
-
+    <h2>Digital Clock</h2>
+    <div class="clock">
+        <div>
+            <span id="hour">00</span>
+            <span id="text">Hours</span>
         </div>
-        <div class="calc-main">
-
-            <button type="button" class="AC opp" id="AC">AC</button>
-            <button type="button" class="x opp" id="x">x</button>
-            <button type="button" class="equal opp" id="equal">=</button>
-
-            <button type="button" class="btn opp" data-key="-">-</button>
-            <button type="button" class="btn" data-key="1">1</button>
-            <button type="button" class="btn" data-key="2">2</button>
-            <button type="button" class="btn" data-key="3">3</button>
-            <button type="button" class="btn opp" data-key="/">/</button>
-            <!-- <button type="button" class="btn" data-key="(">(</button>
-            <button type="button" class="btn" data-key=")">)</button> -->
-            <button type="button" class="btn" data-key="4">4</button>
-
-            <button type="button" class="btn" data-key="5">5</button>
-            <button type="button" class="btn" data-key="6">6</button>
-
-            <button type="button" class="btn opp" data-key="+">+</button>
-
-            <button type="button" class="btn" data-key="7">7</button>
-            <button type="button" class="btn" data-key="8">8</button>
-            <button type="button" class="btn" data-key="9">9</button>
-            <button type="button" class="btn opp" data-key="*">*</button>
-            <button type="button" class="btn" data-key="0">0</button>
-            <button type="button" class="btn" data-key=".">.</button>
-
-            <button type="button" class="sqr" id="sqr">&#8730;</button>
-
+        <div>
+            <span id="min">00</span>
+            <span id="text">Minutes</span>
         </div>
-
+        <div>
+            <span id="seconds">00</span>
+            <span id="text">Seconds</span>
+        </div>
+        <div>
+            <span id="ampm">PM</span>
+        </div>
     </div>
-
-
 
 
     <script src="script.js"></script>

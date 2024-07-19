@@ -2,190 +2,61 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--BG-COLOR);
-
-}
-
-:root {
-
-
-    --BG-COLOR: white;
-    --CALCBGCOLOR: #cde6de;
-    --CLWHITE: #000;
-    --COLORBLUE: #ff9100;
-    --BTN-BG: #1b191902;
-    --TOGGLE: #fff;
-    --DARK: white;
-
-}
-
-
-
-.darkThemebackGround {
-    --BG-COLOR: #000;
-    --CALCBGCOLOR: #212122;
-    --CLWHITE: #eee9e9;
-    --COLORBLUE: #2f00ff;
-    --BTN-BG: #0a0505;
-    --TOGGLE: #000;
-    --DARK: black;
-}
-
-
-
-
-.calcontainer {
-    background: var(--CALCBGCOLOR);
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 2.5em 1em;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px var(--CLWHITE);
-    border: 2px solid black;
-
-
+    align-items: center;
+    justify-content: center;
+    /* background: color-mix(in hsl shorter hue, red 40%, blue 60%); */
+    color: white;
+    background: url("https://images.unsplash.com/photo-1475776408506-9a5371e7a068?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
 }
 
-.calcontainer .calc-Head nav {
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.clock {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0.5em 1em;
-    margin-bottom: 3em;
     position: relative;
 }
 
-.calcontainer .calc-Head nav h2 {
-    color: var(--CLWHITE);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    position: absolute;
-    left: 0.1px;
+.clock div {
+    margin: 5px;
 }
 
-.calcontainer .calc-Head nav h2 span {
-    color: var(--COLORBLUE);
-}
-
-.calcontainer .calc-Head .screen input {
-    height: 50px;
-    display: block;
-    width: 100%;
-    pointer-events: none;
-    background: var(--CLWHITE);
-    color: var(--DARK);
-    text-align: end;
-    font-weight: bold;
-
-}
-
-
-.calcontainer .calc-Head nav .label {
-    position: absolute;
-    width: 55px;
-    height: 30px;
-    background: var(--CLWHITE);
-    border-radius: 20px;
-    right: 1px;
-}
-
-.calcontainer .calc-Head nav .label .circle {
-    background: var(--TOGGLE);
-    height: 22px;
-    width: 22px;
-    border-radius: 10px;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    animation: toggleLight 0.4s linear forwards;
-
-}
-
-.calcontainer .calc-Head nav .theme-container input {
-    visibility: hidden;
-
-}
-
-
-
-
-.theme-container input:checked+.label {
-    background: var(--CLWHITE);
-
-
-}
-
-.theme-container input:checked+.label .circle {
-    animation: toggleDark 0.4s linear forwards;
-}
-
-
-@keyframes toggleDark {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(23px);
-    }
-}
-
-
-@keyframes toggleLight {
-    0% {
-        transform: translateX(23px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.calcontainer .calc-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.1em;
-    margin-top: 0.5em;
-}
-
-.calcontainer .calc-main button {
-    background: var(--BTN-BG);
-    border-radius: 50%;
-    color: var(--CLWHITE);
+.clock span {
+    background: transparent;
+    opacity: .8;
+    width: 100px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    text-shadow: 2px 5px 5px black;
     font-family: sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    height: 60px;
-    width: 55px;
-    border: transparent;
 }
 
-.calcontainer .calc-main .opp {
-    background: var(--COLORBLUE);
+.clock #text {
+    height: 10px;
+    font-size: 13px;
+
 }
 
-.calcontainer .calc-main .sqr {
-    background: goldenrod;
-    font-size: 40px;
-    font-weight: bolder;
-}
-
-.calcontainer .calc-main #x {
-    background: red;
-}
-
-.calcontainer .calc-main .equal {
-    background: rgb(37, 204, 37);
-}
-
-.calcontainer .calc-main button:hover {
-    background: #3a363646;
-    color: #fff;
-    font-size: large;
-    font-weight: bold;
-    box-shadow: 0 5px 8px var(--CLWHITE);
+.clock #ampm {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 30px;
+    font-size: 25px;
+    background: green;
 }
