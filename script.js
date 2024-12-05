@@ -1,29 +1,15 @@
-const hours = document.getElementById('hour');
-const min = document.getElementById('min');
-const seconds = document.getElementById('seconds');
+function calculateLoan() {
+  loanAmountValue = document.getElementById('loan-amount').value;
 
-function updateTime() {
-  let hrs = new Date().getHours();
-  let m = new Date().getMinutes();
-  let s = new Date().getSeconds();
-  if (hrs > 12) {
-    hrs = hrs - 12;
-  }
+  interestRateValue = document.getElementById('interest-rate').value;
 
-  hrs = hrs < 10 ? '0' + hrs : hrs;
-  m = m < 10 ? '0' + m : m;
-  s = s < 10 ? '0' + s : s;
+  monthstoPayValue = document.getElementById('month-to-pay').value;
 
-  hours.textContent = hrs;
-  min.textContent = m;
-  seconds.textContent = s;
+  interest = (loanAmountValue * (interestRateValue * 0.1)) / monthstoPayValue;
 
-  setTimeout(() => {
-    updateTime();
-  }, 1000);
+  monthlyPayment = loanAmountValue / monthstoPayValue + interest;
+
+  document.getElementById(
+    'payment'
+  ).innerHTML = `Monthly Payment: ${monthlyPayment}`;
 }
-
-updateTime();
-
-
-updateTime();
