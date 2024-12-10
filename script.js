@@ -1,15 +1,20 @@
-function calculateLoan() {
-  loanAmountValue = document.getElementById('loan-amount').value;
+const hourEl = document.querySelector('.hours');
+const minEl = document.querySelector('.minutes');
+const secEl = document.querySelector('.seconds');
 
-  interestRateValue = document.getElementById('interest-rate').value;
+function updateTime() {
+  let currentTime = new Date();
+  let hr = currentTime.getHours();
+  let min = currentTime.getMinutes();
+  let sec = currentTime.getSeconds();
 
-  monthstoPayValue = document.getElementById('month-to-pay').value;
+  let hrDeg = (hr / 12) * 360;
+  let minDeg = (min / 60) * 360;
+  let secDeg = (sec / 60) * 360;
 
-  interest = (loanAmountValue * (interestRateValue * 0.1)) / monthstoPayValue;
-
-  monthlyPayment = loanAmountValue / monthstoPayValue + interest;
-
-  document.getElementById(
-    'payment'
-  ).innerHTML = `Monthly Payment: ${monthlyPayment}`;
+  hourEl.style.transform = `rotate(${hrDeg}deg)`;
+  minEl.style.transform = `rotate(${minDeg}deg)`;
+  secEl.style.transform = `rotate(${secDeg}deg)`;
 }
+
+setInterval(updateTime, 1000);

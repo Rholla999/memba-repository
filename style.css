@@ -1,28 +1,108 @@
-body {
-    padding: 0;
+* {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    background: yellow;
 }
 
-.container {
-    background: #171790;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+
+.clock {
+    height: 350px;
+    width: 350px;
+    border: 2px solid;
+    border-radius: 50%;
+    position: relative;
+    background: brown;
+
 }
 
-.container input {
-    height: 30px;
+
+img {
+    width: 70px;
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.numbers div {
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.twelve {
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.six {
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.three {
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nine {
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.arrows {
+    height: 100%;
     width: 100%;
-    font-size: 20px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.container .payment {
-    font-weight: 600;
-    font-size: 20px;
+
+.arrows::before {
+    content: '';
+    height: 20px;
+    width: 20px;
+    background: yellow;
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.arrows div {
+    height: 125px;
+    width: 7px;
+    background: grey;
+    position: absolute;
+    transform-origin: bottom center;
+    bottom: 50%;
+    border-radius: 50% 50% 0 0;
+    z-index: 3;
+}
+
+
+.arrows .hours {
+    transform: rotate(20deg);
+    width: 10px;
+    height: 100px;
+}
+
+.arrows .seconds {
+    background: white;
+    transform: rotate(320deg);
+    width: 3px;
 }
