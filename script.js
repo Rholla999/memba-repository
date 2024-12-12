@@ -1,20 +1,12 @@
-const hourEl = document.querySelector('.hours');
-const minEl = document.querySelector('.minutes');
-const secEl = document.querySelector('.seconds');
+const bgImg = document.getElementById('bg-img');
 
-function updateTime() {
-  let currentTime = new Date();
-  let hr = currentTime.getHours();
-  let min = currentTime.getMinutes();
-  let sec = currentTime.getSeconds();
+window.addEventListener('scroll', () => {
+  updateImg();
+});
 
-  let hrDeg = (hr / 12) * 360;
-  let minDeg = (min / 60) * 360;
-  let secDeg = (sec / 60) * 360;
 
-  hourEl.style.transform = `rotate(${hrDeg}deg)`;
-  minEl.style.transform = `rotate(${minDeg}deg)`;
-  secEl.style.transform = `rotate(${secDeg}deg)`;
+
+function updateImg() {
+  bgImg.style.opacity = 1 - window.pageYOffset / 800;
+  bgImg.style.backgroundSize = 160 - window.pageYOffset / 12 + '%'
 }
-
-setInterval(updateTime, 1000);
